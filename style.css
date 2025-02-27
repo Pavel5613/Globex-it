@@ -1,0 +1,114 @@
+body {
+    font-family: sans-serif;;
+    /*  Замените на ваш бэкграунд */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%; /* Адаптивность ширины */
+    max-width: 800px;  /* Предельная ширина */
+}
+
+.form-wrapper {
+    background-color: whitesmoke;;
+    opacity: 0.9;
+    padding: 20px;
+    border-radius: 30px; /*  Скругленные углы */
+}
+
+h1 {
+    font-size: 30px; /*  Размер заголовка */
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+p {
+    font-size: 14px;
+    text-align: left;
+    color: #555; /*  Серый цвет текста */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /*  Стиль рамки */
+    border-radius: 5px;
+    box-sizing: border-box; /*  Важно для правильной ширины */
+    font-size: 16px;
+}
+
+textarea {
+    height: 100px; /* Высота текстового поля */
+    resize: vertical; /*  Разрешить изменение высоты */
+}
+
+button[type="submit"] {
+    background-color: #1361b4; /* Синий цвет кнопки */
+    color: #fff;
+    padding: 12px 80px;
+    border: none;
+    position: relative;
+    right: -250px;;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /*  Более темный синий при наведении */
+}
+
+.agreement {
+    font-size: 12px;
+    color: #888; /*  Более светлый серый */
+    margin-top: 15px;
+    text-align: center;
+}
+
+.agreement a {
+    color: #007bff; /*  Синий цвет ссылок */
+    text-decoration: none; /*  Убрать подчеркивание */
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /*  Занять больше места на экране */
+    }
+
+    .form-wrapper {
+        padding: 15px; /* Уменьшить отступы */
+    }
+
+    h1 {
+        font-size: 20px; /*  Уменьшить размер заголовка */
+    }
+
+    p {
+        font-size: 13px; /*  Уменьшить размер текста */
+    }
+}

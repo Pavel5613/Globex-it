@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма консультации</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" sizes="192x192" href="https://avatars.mds.yandex.net/i?id=a1db22b821007c12e570060e0736025b_l-5387132-images-thumbs&n=13">
+    
+</head>
+<body>
+    <style>
+        body {
+          background-image: url('https://www.microsoft.com/en-us/dynamics-365/blog/wp-content/uploads/2019/10/customer-service.png  ');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        </style>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Получить консультацию</h1>
+            <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+
+            <form id="consultation-form">
+                <div class="form-group">
+                    <input type="tel" id="name" name="name" placeholder="Ваше имя">  
+                    <span class="error-message" id="name-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Введите ваш номер +7 (___) ___-__-__">
+                    <script>
+                        const phoneInput = document.getElementById('phone');
+                
+                        phoneInput.addEventListener('input', function(event) {
+                            let value = this.value.replace(/\D/g, '');
+                
+                            // Убедимся, что строка не начинается с 7, если уже есть код страны
+                            if (value.startsWith('7')) {
+                                value = value.substring(1); // Удаляем первую 7, если она есть
+                            }
+                
+                            let formattedValue = '+7 (';
+                
+                            if (value.length > 0) {
+                                formattedValue += value.substring(0, 3);
+                                if (value.length > 3) {
+                                    formattedValue += ') ' + value.substring(3, 6);
+                                }
+                                if (value.length > 6) {
+                                    formattedValue += '-' + value.substring(6, 8);
+                                }
+                                if (value.length > 8) {
+                                    formattedValue += '-' + value.substring(8, 10);
+                                }
+                            }
+                
+                            this.value = formattedValue;
+                        });
+                    </script>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email">
+                    <span class="error-message" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <textarea type="message" id="message" name="message" placeholder="Оставьте сообщение"></textarea>
+                    <span class="error-message" id="message-error"></span>
+                </div>
+
+                <button class="button" type="submit">Отправить</button>
+
+                <p class="agreement">Нажимая «Продолжить», вы принимаете <a href="#">пользовательское соглашение</a> и <a href="#">политику конфиденциальности</a></p>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+    
